@@ -6,8 +6,8 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
  
 Authors in chronological order of contribution:
-Author 1
-Author 2
+Timothy Riedel
+Taylor Tran
  
 Further Information:
 http://diystream.cns.utexas.edu/
@@ -24,8 +24,175 @@ blah, blah, blah, blah
 -->
 
    <head> 
+<title>Hello World</title>  
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <link rel="stylesheet" href="w3.css">
+      <link rel="stylesheet" href="w3-colors-flat.css">
+   </head> 
+
+	
+<script>
+        var allergy_count = 0; //declares variable that keeps track of how many allergy options are chosen; starts at 0//
+        var cold_count = 0; //declares variable that keeps track of how many cold options are chosen; starts at 0//
+       
+	function allergyAdd(){ //declares function that adds to the allergy_count//
+            allergy_count = allergy_count + 1; //codes for the change in allergy_count after an allergy option is chosen//
+		alert(allergy_count); //codes for pop-up that appears after clicking an option//
+    
+	}
+ 
+	function coldAdd(){ //declares function that adds to the cold_count//
+            cold_count = cold_count + 1; //codes for the change in cold_count after a cold option is chosen//
+		alert(cold_count); //codes for pop-up that appears after clicking an option//
       
-	   PUT YOUR OLD CODE IN HERE
+	}
+
+ 	function generateResults(){ //declares function that generates results//
+ 		var allergyPercent = (allergy_count / 6) * 100; //declares variable that shows percentage of liklihood of allergy; equation codes for calculation//
+ 		var coldPercent = (cold_count / 6) * 100; //declares variable that shows percentage of liklihood of cold; equation codes for calculation//
+ 		var resultText = document.getElementById("results"); //turns results into text//
+ 		resultText.innerHTML = "Probability it is allergies =" + allergyPercent + "<br> Probability it is a cold =" + coldPercent; //codes for the structure of the results//
+
+	}
+
+	</script>
+
+	
+<style>	
+.body {
+     margin: 0em;
+
+}
+	
+.page {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    overflow-y: auto;
+    z-index: 0;
+    background-color: hsl(0,0%,100%);
+
+}
+	
+  .page:target {
+    left: 0vw;
+    z-index: 1;
+
+}
+</style>
+
+<body>
+<div id="header" class="w3-container w3-flat-carrot"> <!--codes for structure of header-->
+	<h1>Cold or Allergies?</h1> <!--header-->
+</div>
+	
+<div id="content" class="w3-container"> <!--codes for structure of content-->
+	<p>Are you feeling like you might have a cold but wonder if it is allergies. Answer a few short questions to find out!</p> <!--introduction question-->
+	
+	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a> <!--codes for button: style & function (brings to next page)-->
+	
+	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+
+<div class="page" id="one"> <!--declares page structure & number-->
+	<div id="header" class="w3-container w3-flat-carrot"> <!--codes for structure & style of header-->
+		<h1>Question 1</h1> <!--header-->
+	</div>
+	
+    	<div id="content" class="w3-container"> <!--codes for structure & style of content-->
+        	<p>Are your eyes watery or itchy?</p>    <!--question-->
+			<a href="#two" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> Yes</a> <!--codes for button that flips to next page & activates allergyAdd function-->
+			<a href="#two" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> No</a>  <!--codes for button that flips to next page & activates coldAdd function-->
+    	</div>
+</div>
+
+<div class="page" id="two">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 2</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Do you have a fever?</p>
+			<a href="#three" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> Yes</a>
+			<a href="#three" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> No</a>
+	</div>
+</div>	
+
+<div class="page" id="three">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 3</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Do you have a sore throat?</p>
+			<a href="#four" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> Yes</a>
+			<a href="#four" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> No</a>
+	</div>
+</div>
+	
+<div class="page" id="four">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 4</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Are your symptoms seasonal or chronic?</p>
+			<a href="#five" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> Yes</a>
+			<a href="#five" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> No</a>
+	</div>
+</div>
+
+<div class="page" id="five">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 5</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Are you experiencing general aches or pains?</p>
+			<a href="#six" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> Yes</a>
+			<a href="#six" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> No</a>
+	</div>
+</div>
+
+<div class="page" id="six">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 6</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Do symptoms flare when you're outside?</p>
+			<a href="#seven" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> Yes</a>
+			<a href="#seven" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> No</a>
+	</div>
+</div>
+
+<div class="page" id="seven">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Results</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+		<a href="#eight" onclick="generateResults();" class="w3-btn w3-grey w3-round"> Results </a> <!--codes for button that flips to final page & activates generateResults function-->
+	</div>
+</div>
+
+<div class="page" id="eight">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Results</h1>
+	
+	<div id="content" class="w3-container">
+		<p id="results"></p> <!--codes for display of results-->
+	
+	</div>
+</div>
+	
+<footer class="w3-bottom w3-container w3-flat-carrot"> <!--codes for structure & style of footer-->
+	<p>DIY!</p>
+</footer>
 	   
    </body>
 </html>
