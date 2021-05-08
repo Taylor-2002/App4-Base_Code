@@ -41,12 +41,12 @@ Known Issues:
        console.log("This file last modified  " + docMod);
 	// If you find the alert box annoying, comment out that line and timestamp will still show up in the debugging console
 
-        var allergy_count = 0; //declares variable that keeps track of how many allergy options are chosen; starts at 0//
+        var corona_count = 0; //declares variable that keeps track of how many corona options are chosen; starts at 0//
         var cold_count = 0; //declares variable that keeps track of how many cold options are chosen; starts at 0//
        
-	function allergyAdd(){ //declares function that adds to the allergy_count//
-            allergy_count = allergy_count + 1; //codes for the change in allergy_count after an allergy option is chosen//
-		alert(allergy_count); //codes for pop-up that appears after clicking an option//
+	function coronaAdd(){ //declares function that adds to the corona_count//
+            corona_count = corona_count + 1; //codes for the change in corona_count after a corona option is chosen//
+		alert(corona_count); //codes for pop-up that appears after clicking an option//
     
 	}
  
@@ -57,10 +57,10 @@ Known Issues:
 	}
 
  	function generateResults(){ //declares function that generates results//
- 		var allergyPercent = (allergy_count / 6) * 100; //declares variable that shows percentage of liklihood of allergy; equation codes for calculation//
- 		var coldPercent = (cold_count / 6) * 100; //declares variable that shows percentage of liklihood of cold; equation codes for calculation//
+ 		var coronaPercent = (corona_count / 4) * 100; //declares variable that shows percentage of likelihood of corona; equation codes for calculation//
+ 		var coldPercent = (cold_count / 4) * 100; //declares variable that shows percentage of liklihood of cold; equation codes for calculation//
  		var resultText = document.getElementById("results"); //turns results into text//
- 		resultText.innerHTML = "Probability it is allergies =" + allergyPercent + "<br> Probability it is a cold =" + coldPercent; //codes for the structure of the results//
+ 		resultText.innerHTML = "Probability it is Coronavirus =" + coronaPercent + "<br> Probability it is a cold =" + coldPercent; //codes for the structure of the results//
 
 	}
 
@@ -94,11 +94,11 @@ Known Issues:
 
 <body>
 <div id="header" class="w3-container w3-flat-carrot"> <!--codes for structure of header-->
-	<h1>Cold or Allergies?</h1> <!--header-->
+	<h1>Cold or Coronavirus?</h1> <!--header-->
 </div>
 	
 <div id="content" class="w3-container"> <!--codes for structure of content-->
-	<p>Are you feeling like you might have a cold but wonder if it is allergies. Answer a few short questions to find out!</p> <!--introduction question-->
+	<p>Are you feeling like you might have a cold but wonder if it is Coronavirus? Answer a few short questions to find out!</p> <!--introduction question-->
 	
 	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a> <!--codes for button: style & function (brings to next page)-->
 	
@@ -114,8 +114,8 @@ Known Issues:
 	</div>
 	
     	<div id="content" class="w3-container"> <!--codes for structure & style of content-->
-        	<p>Are your eyes watery or itchy?</p>    <!--question-->
-			<a href="#two" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> Yes</a> <!--codes for button that flips to next page & activates allergyAdd function-->
+        	<p>Do you have diarrhea?</p>    <!--question-->
+			<a href="#two" onclick="coronaAdd();" class="w3-btn w3-grey w3-round"> Yes</a> <!--codes for button that flips to next page & activates coronaAdd function-->
 			<a href="#two" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> No</a>  <!--codes for button that flips to next page & activates coldAdd function-->
     	</div>
 </div>
@@ -126,9 +126,9 @@ Known Issues:
 	</div>
 	
 	<div id="content" class="w3-container">
-		<p>Do you have a fever?</p>
-			<a href="#three" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> Yes</a>
-			<a href="#three" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> No</a>
+		<p>Do you have nausea or vomiting?</p>
+			<a href="#three" onclick="coronaAdd();" class="w3-btn w3-grey w3-round"> Yes</a>
+			<a href="#three" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> No</a>
 	</div>
 </div>	
 
@@ -138,9 +138,9 @@ Known Issues:
 	</div>
 	
 	<div id="content" class="w3-container">
-		<p>Do you have a sore throat?</p>
+		<p>Can you taste or smell?</p>
 			<a href="#four" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> Yes</a>
-			<a href="#four" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> No</a>
+			<a href="#four" onclick="coronaAdd();" class="w3-btn w3-grey w3-round"> No</a>
 	</div>
 </div>
 	
@@ -150,47 +150,24 @@ Known Issues:
 	</div>
 	
 	<div id="content" class="w3-container">
-		<p>Are your symptoms seasonal or chronic?</p>
-			<a href="#five" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> Yes</a>
+		<p>Have you been exposed to the Coronavirus?</p>
+			<a href="#five" onclick="coronaAdd();" class="w3-btn w3-grey w3-round"> Yes</a>
 			<a href="#five" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> No</a>
 	</div>
 </div>
 
+
 <div class="page" id="five">
-	<div class="w3-container w3-flat-carrot">
-		<h1>Question 5</h1>
-	</div>
-	
-	<div id="content" class="w3-container">
-		<p>Are you experiencing general aches or pains?</p>
-			<a href="#six" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> Yes</a>
-			<a href="#six" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> No</a>
-	</div>
-</div>
-
-<div class="page" id="six">
-	<div class="w3-container w3-flat-carrot">
-		<h1>Question 6</h1>
-	</div>
-	
-	<div id="content" class="w3-container">
-		<p>Do symptoms flare when you're outside?</p>
-			<a href="#seven" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> Yes</a>
-			<a href="#seven" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> No</a>
-	</div>
-</div>
-
-<div class="page" id="seven">
 	<div class="w3-container w3-flat-carrot">
 		<h1>Results</h1>
 	</div>
 	
 	<div id="content" class="w3-container">
-		<a href="#eight" onclick="generateResults();" class="w3-btn w3-grey w3-round"> Results </a> <!--codes for button that flips to final page & activates generateResults function-->
+		<a href="#six" onclick="generateResults();" class="w3-btn w3-grey w3-round"> Results </a> <!--codes for button that flips to final page & activates generateResults function-->
 	</div>
 </div>
 
-<div class="page" id="eight">
+<div class="page" id="six">
 	<div class="w3-container w3-flat-carrot">
 		<h1>Results</h1>
 	
